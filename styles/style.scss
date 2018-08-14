@@ -1,0 +1,21 @@
+@import "partials/_setup.scss";
+@import "partials/_utils.scss";
+@import "partials/_typography.scss";
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.8rem;
+    font-family: 'Questrial', sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+.wrapper {
+    max-width: 110rem;
+    margin: 0 auto;
+}

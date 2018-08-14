@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Find My Trail</title>
+</head>
+<body>
+    
+    <header class="wrapper">
+        <h1>Find My Trail</h1>
+        <p>Not sure which of the 15 day trails to do along the Highway 60 corridor? Fill out this short quiz to help you decide!</p>
+    </header>
+
+    <main class="wrapper">
+        <form action="#">
+            <fieldset class="difficulty">
+                <p class="question">How much hiking experience do you have?</p>
+                <label for="none">I have never set foot outside.</label>
+                <input type="radio" id="none" class="none" value="none">
+                <label for="some">I've been hiking once or twice.</label>
+                <input type="radio" id="some" class="some" value="some">
+                <label for="lots">I hike all the time!</label>
+                <input type="radio" id="lots" class="lots" value="lots">
+            </fieldset>
+
+            <fieldset class="length">
+                <p class="question">How much time would you like to spend on your hike? </p>
+                <label for="low">0 - 1 hour</label>
+                <input type="radio" id="low" class="low" value="low">
+                <label for="medium">1.5 - 3 hours</label>
+                <input type="radio" id="medium" class="medium" value="medium">
+                <label for="high">3.5 to 5 hours</label>
+                <input type="radio" id="high" class="high" value="high">
+            </fieldset>
+
+            <fieldset class="interest">
+                <p>On your hike, you primarily want to see...</p>
+                <label for="wildlife">Some cool animals</label>
+                <input type="radio" id="wildlife" class="wildlife" value="wildlife">
+                <label for="nature">The wonder of mother nature and her plant children, man</label>
+                <input type="radio" id="nature" class="nature" value="nature">
+                <label for="lookouts"> Sweet, sweet lookouts</label>
+                <input type="radio" id="lookouts" class="lookouts" value="lookouts">
+            </fieldset>
+        </form>
+
+        <section class="results">
+        </section>
+    </main>
+
+    <footer class="wrapper">
+        <p>&copy; 2018 Claire Ristow</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
