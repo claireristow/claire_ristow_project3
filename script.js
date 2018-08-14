@@ -1,16 +1,42 @@
-const trails = {
-    whiskyRapids: "Whisky Rapids Trail: This looped trail leads along the Oxtongue River to scenic Whiskey Rapids. The trail guide discusses the ecology and history of an Algonquin river.",
+const trails = [
 
-    hardwoodLookout: "Hardwood Lookout Trail: This walk introduces the visitor to the ecology of a typical Algonquin hardwood forest and culminates in a fine view of Smoke Lake and the surrounding hills.",
+    whiskyRapids = {
+        name: "Whisky Rapids Trail",
+        description: "This looped trail leads along the Oxtongue River to scenic Whiskey Rapids. The trail guide discusses the ecology and history of an Algonquin river.",
+        tags: ["some", "medium", "plants"]
+        
+    },
+
+    hardwoodLookout = {
+        name: "Hardwood Lookout Trail",
+        description: "This walk introduces the visitor to the ecology of a typical Algonquin hardwood forest and culminates in a fine view of Smoke Lake and the surrounding hills.",
+        tags: ["some", "low", "lookout"]
+    },
+
+    mizzyLake = {
+        name: "Mizzy Lake Trail",
+        description: "This trail requires an early start and a full day to do properly. It visits nine ponds and small lakes and affords some of the best chances to see wildlife in the Parkway Corridor. Dogs are not permitted on the trail.",
+        tags: ["some", "high", "animals"]
+    },
+
+    peckLake = { 
+        name: "Peck Lake Trail",
+        description: "This trail circumnavigates the shoreline of Peck Lake. The trail guide explores the ecology of a typical Algonquin lake.",
+        tags: ["some", "low", "plants"]
+    },
+
+    trackTower = {
+        name: "Track and Tower Trail",
+        description: "This looped trail features a spectacular lookout over Cache Lake. An optional 5.5 km side trip follows an abandoned railway to Mew Lake.",
+        tags: ["some", "medium", "lookout"]
+    },
     
-    mizzyLake: "Mizzy Lake Trail: This trail requires an early start and a full day to do properly. It visits nine ponds and small lakes and affords some of the best chances to see wildlife in the Parkway Corridor. Dogs are not permitted on the trail.",
-    
-    peckLake: "Pack Lake Trail: This trail circumnavigates the shoreline of Peck Lake. The trail guide explores the ecology of a typical Algonquin lake.",
-    
-    trackTower: "Track and Tower Trail: This looped trail features a spectacular lookout over Cache Lake. An optional 5.5 km side trip follows an abandoned railway to Mew Lake.",
-    
-    hemlockBluff: "Hemlock Bluff Trail: This trail leads through a mixed forest to an impressive view of Jack Lake.",
-    
+    hemlockBluff = {
+        name: "Hemlock Bluff Trail",
+        description: "This trail leads through a mixed forest to an impressive view of Jack Lake.",
+        tags: ["some", "medium", "lookout"]
+    },
+
     batLake: "Bat Lake Trail: This looped trail introduces the hiker to basic park ecology while visiting a beautiful hemlock stand, a fine lookout, and acidic Bat Lake.",
     
     twoRivers: "Two Rivers Trail: This looped trail includes an easy climb to a pine-clad cliff.",
@@ -28,7 +54,7 @@ const trails = {
     beaverPond: "Beaver Pond Trail: This trail provides excellent views of two beaver ponds.",
     
     loggingMuseum: "Algonquin Logging Museum Trail: This trail and exhibit summarizes the logging history of the Algonquin area. Features a re-created camboose camp and a fascinating steam-powered amphibious tug called an “alligator”.",
-};
+];
 
 $(function(){
 
