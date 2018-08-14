@@ -37,33 +37,78 @@ const trails = [
         tags: ["some", "medium", "lookout"]
     },
 
-    batLake: "Bat Lake Trail: This looped trail introduces the hiker to basic park ecology while visiting a beautiful hemlock stand, a fine lookout, and acidic Bat Lake.",
+    batLake = {
+        name: "Bat Lake Trail",
+        description: "This looped trail introduces the hiker to basic park ecology while visiting a beautiful hemlock stand, a fine lookout, and acidic Bat Lake.",
+        tags: ["some", "medium", "plants"]
+    },
     
-    twoRivers: "Two Rivers Trail: This looped trail includes an easy climb to a pine-clad cliff.",
+    twoRivers = {
+        name: "Two Rivers Trail",
+        description: "This looped trail includes an easy climb to a pine-clad cliff.",
+        tags: ["some", "low", "lookout"]
+    },
     
-    centennialRidges: "Centennial Ridges Trail: This demanding loop rewards the hiker with spectacular viewing along two high ridges.",
+    centennialRidges = {
+        name: "Centennial Ridges Trail",
+        description: "This demanding loop rewards the hiker with spectacular viewing along two high ridges.",
+        tags: ["lots", "high", "lookout"]
+    },
     
-    boothsRock: "Booth's Rock Trail: This trail visits two lakes and a spectacular lookout, returning via an abandoned railway. ",
+    boothsRock = {
+        name: "Booth's Rock Trail",
+        description: "This trail visits two lakes and a spectacular lookout, returning via an abandoned railway.",
+        tags: ["some", "medium", "lookout"]
+    },
     
-    lookout: "Lookout Trail: This trail is relatively steep and rugged but affords the hiker with a magnificent view of several hundred square kilometres of Algonquin.",
+    lookout = {
+        name: "Lookout Trail",
+        description: "This trail is relatively steep and rugged but affords the hiker with a magnificent view of several hundred square kilometres of Algonquin.",
+        tags: ["some", "low", "lookout"]
+    },
     
-    bigPines: "Big Pines Trail: This trail visits spectacularly large, old growth White Pine and the remains of an 1880s logging camp.",
+    bigPines = {
+        name: "Big Pines Trail",
+        description: "This trail visits spectacularly large, old growth White Pine and the remains of an 1880s logging camp.",
+        tags: ["some", "medium", "lookout"]
+    },
     
-    spruceBog: "Spruce Bog Boardwalk: Several boardwalk sections in the looped trail give you an excellent close-up look of two typical northern Black Spruce bogs. The trail is located right off of the Highway 60 corridor, making it very accessible for bird watching.",
+    spruceBog = {
+        name: "Spruce Bog Boardwalk",
+        description: "Several boardwalk sections in the looped trail give you an excellent close-up look of two typical northern Black Spruce bogs. The trail is located right off of the Highway 60 corridor, making it very accessible for bird watching.",
+        tags: ["none", "low", "animals"]
+    },
+
+    beaverPond = {
+        name: "Beaver Pond Trail",
+        description: "This trail provides excellent views of two beaver ponds.",
+        tags: ["some", "low", "animals"]
+    },
     
-    beaverPond: "Beaver Pond Trail: This trail provides excellent views of two beaver ponds.",
-    
-    loggingMuseum: "Algonquin Logging Museum Trail: This trail and exhibit summarizes the logging history of the Algonquin area. Features a re-created camboose camp and a fascinating steam-powered amphibious tug called an “alligator”.",
+    loggingMuseum = {
+        name: "Algonquin Logging Museum Trail",
+        description: "This trail and exhibit summarizes the logging history of the Algonquin area. Features a re-created camboose camp and a fascinating steam-powered amphibious tug called an “alligator”.",
+        tags: ["none", "low", "plants"]
+    }
 ];
 
 $(function(){
 
     // when the form submits
-    $('form').on('submit', function(){
-        // create an empty object (will be used to store the results from the user's choice)
-        let results = {};
+    $('form').on('submit', function(event){
+        event.preventDefault();
+
         // check the user choice in the first fieldset
-        $('fieldset.difficulty').val();
+        const experienceChoice = $('input[name=experience]:checked').val();
+        const lengthChoice = $('input[name=length]:checked').val();
+        const interestChoice = $('input[name=interest]:checked').val();
+        console.log(experienceChoice, lengthChoice, interestChoice);
+
+        
+        // create an empty object (will be used to store the results from the user's choice)
+        // const results = trails.filter((trail) => {
+            
+        // });
         // append the items from the trails object to the new object which correspond to that user choice
         // check the user choice in the second fieldset
         // remove the items the new object which don't correspond to that user choice
