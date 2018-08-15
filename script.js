@@ -112,33 +112,58 @@ $(function(){
         // create an array that stores the results based on the user's choices
 
         const results = function(){
-           return  trails.filter((trail) => {
+           return trails.filter((trail) => {
                 let matches = 0;
                 for (i = 0; i < trail.tags.length; i++) {
-                    console.log(trail.tags[i]);
                     if (userChoices.includes(trail.tags[i])) {
                         matches = matches + 1;
                     }
                 }
                 return matches === 3;
             });
+            // console.log(trails);
         }        
 
-        console.log(results());
+        // store the returned array from results() in a variable so that I can call an index on the array later
+        const callingResults = results();
+
         
         // if there is more than one result, display the message "You have a couple options! Read about each trail to help make your decision."
-
-        if (results.length > 1) {
-            $('section.results').html(`
-            <h2 class="trail-name"></h2>
-            <p class="trail-description"></p>`)
+        const checkResults = function() {
+            if (callingResults.length > 1) {
+                $('section.results').html(`<h3>You have multiple results! Read a bit about each trail to help narrow down your decision.</h3>`);
+                for (i = 0; i < callingResults.length; i++) {
+                    console.log(callingResults[i]);
+                    $('section.results').html(`
+                    <h2>${callingResults[i].name}</h2>
+                    <p class="trail-description">${callingResults[i].description}</p>`)
+                };
             // if there are no results that match the users input specifically, display 2 suggestions that meet at least some of the criteria 
-        }
-            
+            } else if (callingResults.length === 0) {
+                $(`section.results`).html(`<h3>There are no trails that match exactly what you are looking for. However, here are a few suggestions that match some of your wishes!</h3>`);
+                const results = function () {
+                    return trails.filter((trail) => {
+                        let matches = 0;
+                        for (i = 0; i < trail.tags.length; i++) {
+                            if (userChoices.includes(trail.tags[i])) {
+                                matches = matches + 1;
+                            }
+                        }
+                        return matches === 2;              
+                    });
+                }
+                results();
+
             // if there is one result, display it
-            $('section.results').html(`
-            <h2 class="trail-name">${results.name}</h2>
-            <p class="trail-description">${results.description}</p>`);
+            } else {
+                $('section.results').html(`
+                <h2>${callingResults[0].name}</h2>
+                <p class="trail-description">${callingResults[0].description}</p>`);
+            }
+        };
+
+
+        console.log(checkResults());
             
         
         
