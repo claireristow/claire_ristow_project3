@@ -92,30 +92,57 @@ const trails = [
     }
 ];
 
+// If there's still time, create a global object (check out the lesson 6.2)
+
 $(function(){
 
     // when the form submits
     $('form').on('submit', function(event){
         event.preventDefault();
 
-        // check the user choice in the first fieldset
+        // store the user choices in vairables
         const experienceChoice = $('input[name=experience]:checked').val();
         const lengthChoice = $('input[name=length]:checked').val();
         const interestChoice = $('input[name=interest]:checked').val();
-        console.log(experienceChoice, lengthChoice, interestChoice);
 
+        // create an array with the user's three choices
+        const userChoices = [experienceChoice,lengthChoice, interestChoice];
+        console.log(userChoices);
         
-        // create an empty object (will be used to store the results from the user's choice)
-        // const results = trails.filter((trail) => {
-            
-        // });
-        // append the items from the trails object to the new object which correspond to that user choice
-        // check the user choice in the second fieldset
-        // remove the items the new object which don't correspond to that user choice
-        // check the user choice in the third fieldset
-        // remove the items the new object which don't correspond to that user choice
-        // if there is more than one key left in the object, get a random chocie out of the remaining trails
+        // create an array that stores the results based on the user's choices
 
+        const results = function(){
+           return  trails.filter((trail) => {
+                let matches = 0;
+                for (i = 0; i < trail.tags.length; i++) {
+                    console.log(trail.tags[i]);
+                    if (userChoices.includes(trail.tags[i])) {
+                        matches = matches + 1;
+                    }
+                }
+                return matches === 3;
+            });
+        }        
+
+        console.log(results());
+        
+        // if there is more than one result, display the message "You have a couple options! Read about each trail to help make your decision."
+
+        if (results.length > 1) {
+            $('section.results').html(`
+            <h2 class="trail-name"></h2>
+            <p class="trail-description"></p>`)
+            // if there are no results that match the users input specifically, display 2 suggestions that meet at least some of the criteria 
+        }
+            
+            // if there is one result, display it
+            $('section.results').html(`
+            <h2 class="trail-name">${results.name}</h2>
+            <p class="trail-description">${results.description}</p>`);
+            
+        
+        
+        
     });
 
 });
