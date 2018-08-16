@@ -134,14 +134,14 @@ $(function(){
                 $('section.results').html(`<h3>You have multiple results! Read a bit about each trail to help narrow down your decision.</h3>`);
                 for (i = 0; i < callingResults.length; i++) {
                     console.log(callingResults[i]);
-                    $('section.results').html(`
+                    $('section.results').append(`
                     <h2>${callingResults[i].name}</h2>
                     <p class="trail-description">${callingResults[i].description}</p>`)
                 };
             // if there are no results that match the users input specifically, display 2 suggestions that meet at least some of the criteria 
             } else if (callingResults.length === 0) {
                 $(`section.results`).html(`<h3>There are no trails that match exactly what you are looking for. However, here are a few suggestions that match some of your wishes!</h3>`);
-                const results = function () {
+                const twoSuggestions = function () {
                     return trails.filter((trail) => {
                         let matches = 0;
                         for (i = 0; i < trail.tags.length; i++) {
@@ -149,10 +149,20 @@ $(function(){
                                 matches = matches + 1;
                             }
                         }
-                        return matches === 2;              
+                        if (matches === 2) {
+                            return matches === 2;
+                        } else if (matches === 1) {
+                            return matches === 1;
+                        }
                     });
                 }
-                results();
+                const twoSuggestionsResult = twoSuggestions();
+
+                for (i = 0; i < 2; i++) {
+                    $('section.results').append(`
+                    <h2>${twoSuggestionsResult[i].name}</h2>
+                    <p class="trail-description">${twoSuggestionsResult[i].description}</p>`)
+                };
 
             // if there is one result, display it
             } else {
