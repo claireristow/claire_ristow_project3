@@ -131,17 +131,21 @@ $(function () {
 
         // if there is more than one result, display the message "You have a couple options! Read about each trail to help make your decision."
         const checkResults = function () {
+            $('form').addClass('hide');
             if (callingResults.length > 1) {
                 $('section.results').html(`<h3>You have multiple results! Read a bit about each trail to help narrow down your decision.</h3>`);
-                for (i = 0; i < callingResults.length; i++) {
+                for (i = 0; i < 2; i++) {
                     console.log(callingResults[i]);
                     $('section.results').append(`
                     <h2>${callingResults[i].name}</h2>
                     <p class="trail-description">${callingResults[i].description}</p>`)
                 };
+                $('section.results').append(`<a href="#" class="reload">Take the quiz again!</a>`);
+
                 // if there are no results that match the users input specifically, display 2 suggestions that meet at least some of the criteria 
             } else if (callingResults.length === 0) {
-                $(`section.results`).html(`<h3>There are no trails that match exactly what you are looking for. However, here are a few suggestions that match some of your wishes!</h3>`);
+                // $(`section.results`).html(`<h3>There are no trails that match exactly what you are looking for. Here are a few suggestions that match some of your wishes!</h3>`);
+                $('section.results').html(`<h3>You have multiple results! Read a bit about each trail to help narrow down your decision.</h3>`);
                 const twoSuggestions = function () {
                     return trails.filter((trail) => {
                         let matches = 0;
@@ -166,21 +170,29 @@ $(function () {
                     <h2>${twoSuggestionsResult[i].name}</h2>
                     <p class="trail-description">${twoSuggestionsResult[i].description}</p>`)
                 };
+                $('section.results').append(`<a href="#" class="reload">Take the quiz again!</a>`)
                 
             // if there is one result, display it
             } else {
                 $('section.results').html(`
                 <h2>${callingResults[0].name}</h2>
-                <p class="trail-description">${callingResults[0].description}</p>`);
+                <p class="trail-description">${callingResults[0].description}</p>
+                <a href="#" class="reload">Take the quiz again!</a>`);
             }
         };
 
         console.log(checkResults());
+        
+        $('a.reload').on('click', function() {
+            $('section.results').empty();
+            $('form').removeClass('hide');
+        });
 
     });
+    
 
 });
 
-
-
-
+// EXTRAS
+// add Math.random() to the multiple results section so Whisky Rapids isn't always the one recommended
+// add another question

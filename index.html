@@ -10,15 +10,17 @@
 </head>
 <body>
     
-    <header class="wrapper">
-        <h1>Find Your Trail</h1>
-        <p>There are 15 day hikes in Algonquin. Woah, that's a lot. Sounds like you might need some help deciding which one to choose? Perfect! Take the quiz to find out.</p>
+    <header>
+        <div class="wrapper">
+            <h1>Find Your Trail</h1>
+            <p>Not sure which of the 15 day hikes in Algonquin to do? Take this quiz to find out!</p>
+        </div>
     </header>
 
     <main class="wrapper">
         <form action="#">
             <fieldset class="experience">
-                <p>How much experience do you have with hiking?</p>
+                <h3>How much experience do you have with hiking?</h3>
                 <div class="input-container">
                     <input type="radio" id="none" class="none" name="experience" value="none" required>
                     <label for="none">Walking for fun? Is that a thing?</label>
@@ -34,7 +36,7 @@
             </fieldset>
 
             <fieldset class="length">
-                <p>How long would you like to hike for?</p>
+                <h3>How long would you like to hike for?</h3>
                 <div class="input-container">
                     <input type="radio" id="low" class="low" name="length" value="low" required>
                     <label for="low">0 - 1 hour</label>
@@ -50,14 +52,14 @@
             </fieldset>
 
             <fieldset class="interests">
-                <p>What are you most excited to see on your hike?</p>
+                <h3>What are you most excited to see on your hike?</h3>
                 <div class="input-container">
                     <input type="radio" id="animals" class="animals" name="interest" value="animals" required>
                     <label for="animals">Beavers and moose and bears. Oh my!</label>
                 </div>
                 <div class="input-container">
                     <input type="radio" id="plants" class="plants" name="interest" value="plants">
-                    <label for="plants">The wonder of mother nature and her green children, man.</label>
+                    <label for="plants">Mother nature and her green children, man.</label>
                 </div>
                 <div class="input-container">
                     <input type="radio" id="lookout" class="lookout" name="interest" value="lookout">
@@ -68,9 +70,7 @@
             <input type="submit" value="Find my trail!">
         </form>
 
-        <section class="results">
-            
-        </section>
+        <section class="results"></section>
     </main>
 
     <footer class="wrapper">

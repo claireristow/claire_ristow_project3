@@ -134,7 +134,19 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 h1 {
   font-size: 6rem;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0; }
+
+h2 {
+  font-size: 4rem;
+  margin: 0;
+  padding: 0; }
+
+h3 {
+  font-size: 2.6rem;
+  margin: 0 0 2rem 0;
+  padding: 0; }
 
 html {
   font-size: 62.5%; }
@@ -146,13 +158,46 @@ body {
 img {
   max-width: 100%; }
 
+p {
+  line-height: 1.4; }
+
 .wrapper {
-  max-width: 110rem;
+  max-width: 80rem;
   margin: 0 auto; }
 
+.hide {
+  display: none; }
+
 header {
-  text-align: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url("../assets/IMG_4220.JPG");
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/IMG_4220.JPG");
+  background: -o-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/IMG_4220.JPG");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/IMG_4220.JPG");
+  background-size: cover;
+  background-attachment: fixed;
   height: 100vh;
+  color: white; }
+  header .wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh; }
+  header p {
+    width: 70%;
+    font-size: 2.6rem; }
+
+main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -162,21 +207,17 @@ header {
   flex-direction: column;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center; }
-  header p {
-    font-size: 2.6rem; }
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 90vh;
+  padding: 4rem 0 0 0; }
 
 form {
-  width: 100%; }
+  width: 75%; }
 
 fieldset {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
   width: 100%;
   border: none; }
   fieldset p {
@@ -184,5 +225,50 @@ fieldset {
 
 input[type=submit] {
   border: 0.2rem solid black;
+  border-radius: 0.5rem;
   background: none;
-  padding: 1rem 2rem; }
+  padding: 1rem 2rem;
+  margin: 1rem 0 0 1.3rem; }
+  input[type=submit]:hover {
+    background: #292929;
+    color: white; }
+
+.results {
+  width: 100%;
+  height: 90vh;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .results .reload {
+    color: black;
+    border: 0.2rem solid black;
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    text-decoration: none; }
+    .results .reload:hover {
+      background: #292929;
+      color: white; }
+
+footer {
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 1.6rem; }
