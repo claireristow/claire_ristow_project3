@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-family: 'Questrial', sans-serif;
 }
 
@@ -18,4 +18,35 @@ img {
 .wrapper {
     max-width: 110rem;
     margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    p {
+        font-size: 2.6rem;
+    }
+}
+
+form {
+    width: 100%;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: none;
+    p {
+        font-weight: bold;
+    }
+}
+
+input[type=submit] {
+    border: 0.2rem solid black;
+    background: none;
+    padding: 1rem 2rem;
 }

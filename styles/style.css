@@ -133,14 +133,14 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   box-sizing: border-box; }
 
 h1 {
-  font-size: 4rem;
+  font-size: 6rem;
   text-transform: uppercase; }
 
 html {
   font-size: 62.5%; }
 
 body {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-family: 'Questrial', sans-serif; }
 
 img {
@@ -149,3 +149,40 @@ img {
 .wrapper {
   max-width: 110rem;
   margin: 0 auto; }
+
+header {
+  text-align: center;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  header p {
+    font-size: 2.6rem; }
+
+form {
+  width: 100%; }
+
+fieldset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  border: none; }
+  fieldset p {
+    font-weight: bold; }
+
+input[type=submit] {
+  border: 0.2rem solid black;
+  background: none;
+  padding: 1rem 2rem; }
