@@ -127,7 +127,7 @@ footer {
         color: black;
     }
 
-    input[type=submit]:focus {
+    input[type=submit]:active {
         background: #292929;
         color: white;
     }
@@ -137,7 +137,7 @@ footer {
         color: black;
     }
 
-    .results .reload:focus {
+    .results .reload:active {
         background: #292929;
         color: white;
     }

@@ -292,13 +292,13 @@ footer {
   input[type=submit]:hover {
     background: white;
     color: black; }
-  input[type=submit]:focus {
+  input[type=submit]:active {
     background: #292929;
     color: white; }
   .results .reload:hover {
     background: white;
     color: black; }
-  .results .reload:focus {
+  .results .reload:active {
     background: #292929;
     color: white; } }
 
