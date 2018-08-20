@@ -113,7 +113,6 @@ $(function () {
                 let matches = 0;
                 for (i = 0; i < trail.tags.length - 1; i++) {
                     if (userChoices.includes(trail.tags[i])) {
-                        console.log(trail.tags);
                         matches = matches + 1;
                     }
                 }
@@ -122,26 +121,25 @@ $(function () {
         }
 
         // store the returned array from results() in a variable so that I can call an index on the array later
-        const callingResults = results();
-        console.log(callingResults);
+        const arrayResults = results();
+        console.log(arrayResults);
 
         // create a function to print the results by comparing the user's choices and the individual trail tags
         const checkResults = function () {
             $('form').addClass('hide');
             $('input[type=reset]').removeClass('hide');
-            if (callingResults.length > 1) {
+            if (arrayResults.length > 1) {
                 $('section.results').html(`
                 <h2>Your Results:</h2>`);
                 for (i = 0; i < 2; i++) {
-                    console.log(callingResults[i]);
                     $('section.results').append(`
-                    <h3>${callingResults[i].name}</h3>
-                    <p class="trail-description">${callingResults[i].description}</p>`)
+                    <h3>${arrayResults[i].name}</h3>
+                    <p class="trail-description">${arrayResults[i].description}</p>`)
                 };
                 $('section.results').append(`<a href="#" class="reload">Take the quiz again!</a>`);
 
                 // if there are no results that match the users input specifically, display 2 suggestions that meet at least some of the criteria 
-            } else if (callingResults.length === 0) {
+            } else if (arrayResults.length === 0) {
                 $('section.results').html(`
                 <h2>Your Results:</h2>`);
                 const twoSuggestions = function () {
@@ -149,7 +147,6 @@ $(function () {
                         let matches = 0;
                         for (i = 0; i < trail.tags.length; i++) {
                             if (userChoices.includes(trail.tags[i])) {
-                                console.log(trail.tags);
                                 matches = matches + 1;
                             }
                         }
@@ -175,8 +172,8 @@ $(function () {
             } else {
                 $('section.results').html(`
                 <h2>Your Results:</h2>
-                <h3>${callingResults[0].name}</h3>
-                <p class="trail-description">${callingResults[0].description}</p>
+                <h3>${arrayResults[0].name}</h3>
+                <p class="trail-description">${arrayResults[0].description}</p>
                 <a href="#" class="reload">Take the quiz again!</a>`);
             };
         };
