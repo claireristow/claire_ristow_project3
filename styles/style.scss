@@ -43,7 +43,7 @@ header {
         height: 100vh;
     }
     p {
-        width:70%;
+        width:100%;
         font-size: 2.6rem;
     }
 }
@@ -58,7 +58,7 @@ main {
 }
 
 form {
-    width: 75%;
+    width: 100%;
 
 }
 
@@ -68,6 +68,15 @@ fieldset {
     p {
         font-weight: bold;
     }
+}
+
+input[type=radio] {
+    transform: scale(1.2);
+    line-height: 1.4;
+}
+
+label {
+    line-height: 1.4;
 }
 
 input[type=submit] {

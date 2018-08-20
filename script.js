@@ -92,8 +92,6 @@ const trails = [
     }
 ];
 
-// If there's still time, create a global object (check out the lesson 6.2)
-
 $(function () {
 
     // when the form submits
@@ -110,7 +108,6 @@ $(function () {
         console.log(userChoices);
 
         // create an array that stores the results based on the user's choices
-
         const results = function () {
             return trails.filter((trail) => {
                 let matches = 0;
@@ -128,24 +125,25 @@ $(function () {
         const callingResults = results();
         console.log(callingResults);
 
-
-        // if there is more than one result, display the message "You have a couple options! Read about each trail to help make your decision."
+        // create a function to print the results by comparing the user's choices and the individual trail tags
         const checkResults = function () {
             $('form').addClass('hide');
+            $('input[type=reset]').removeClass('hide');
             if (callingResults.length > 1) {
-                $('section.results').html(`<h3>You have multiple results! Read a bit about each trail to help narrow down your decision.</h3>`);
+                $('section.results').html(`
+                <h2>Your Results:</h2>`);
                 for (i = 0; i < 2; i++) {
                     console.log(callingResults[i]);
                     $('section.results').append(`
-                    <h2>${callingResults[i].name}</h2>
+                    <h3>${callingResults[i].name}</h3>
                     <p class="trail-description">${callingResults[i].description}</p>`)
                 };
                 $('section.results').append(`<a href="#" class="reload">Take the quiz again!</a>`);
 
                 // if there are no results that match the users input specifically, display 2 suggestions that meet at least some of the criteria 
             } else if (callingResults.length === 0) {
-                // $(`section.results`).html(`<h3>There are no trails that match exactly what you are looking for. Here are a few suggestions that match some of your wishes!</h3>`);
-                $('section.results').html(`<h3>You have multiple results! Read a bit about each trail to help narrow down your decision.</h3>`);
+                $('section.results').html(`
+                <h2>Your Results:</h2>`);
                 const twoSuggestions = function () {
                     return trails.filter((trail) => {
                         let matches = 0;
@@ -160,30 +158,32 @@ $(function () {
                     
                 }
 
-                // storing the array from the twoSuggestions function in an array so I can call an index on the array
+                // store the array from the twoSuggestions function in an array so I can call an index on the array
                 const twoSuggestionsResult = twoSuggestions();
                 console.log(twoSuggestionsResult);
 
-                // providing alternative suggestions based on the new array which contains results that have 2/3 matches
+                // provide alternative suggestions based on the new array which contains results that have 2/3 matches
                 for (i = 0; i < 2; i++) {
                     $('section.results').append(`
-                    <h2>${twoSuggestionsResult[i].name}</h2>
+                    <h3>${twoSuggestionsResult[i].name}</h3>
                     <p class="trail-description">${twoSuggestionsResult[i].description}</p>`)
                 };
-                $('section.results').append(`<a href="#" class="reload">Take the quiz again!</a>`)
+
+                $('section.results').append(`<a href="#" class="reload">Take the quiz again!</a>`);
                 
             // if there is one result, display it
             } else {
                 $('section.results').html(`
-                <h2>${callingResults[0].name}</h2>
+                <h2>Your Results:</h2>
+                <h3>${callingResults[0].name}</h3>
                 <p class="trail-description">${callingResults[0].description}</p>
                 <a href="#" class="reload">Take the quiz again!</a>`);
-            }
+            };
         };
 
         console.log(checkResults());
-        
-        $('a.reload').on('click', function() {
+
+        $('a.reload').on('click', function () {
             $('section.results').empty();
             $('form').removeClass('hide');
         });
@@ -193,6 +193,10 @@ $(function () {
 
 });
 
-// EXTRAS
-// add Math.random() to the multiple results section so Whisky Rapids isn't always the one recommended
-// add another question
+// FUTURE IMPROVEMENTS
+// add Math.random() to the 'multiple results' section so Whisky Rapids isn't always the one recommended because it comes first in the list
+// add another question or two
+// blowing leaf animation
+// map of the hwy 60 hikes
+// links to the Ontario Parks website
+// more robust/personal trail descriptions 
